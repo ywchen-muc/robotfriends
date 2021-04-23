@@ -4,17 +4,18 @@ import SearchBox from '../components/SearchBox';
 import Scroll from '../components/Scroll';
 import ErrorBoundry from '../components/ErrorBoundry';
 import './App.css';
+import { robotsData } from './robots';
 
 function App() {
-    const [robots, setRobots] = useState([]);
+    const [robots, setRobots] = useState(robotsData);
     const [searchfield, setSearchfield] = useState('');
 
-    // To fetch fake data from 3rd party API
-    useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/users')
-        .then(response => response.json())
-        .then(users => {setRobots(users)})
-    }, [])
+    // The fake data from 3rd party API is broken.
+    // useEffect(() => {
+    //     fetch('https://jsonplaceholder.typicode.com/users')
+    //     .then(response => response.json())
+    //     .then(users => {setRobots(users)})
+    // }, [])
     
     // to get the input value of the search box
     const onSearchChange = (event) => {
